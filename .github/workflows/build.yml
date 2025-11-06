@@ -12,26 +12,21 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # 1. Checkout repository
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      # 2. Setup Flutter (folosind action mai nou)
       - name: Setup Flutter
         uses: flutter-actions/setup-flutter@v2
         with:
-          flutter-version: stable
+          channel: stable   # sau version: '3.13.7' dacă vrei o versiune specifică
 
-      # 3. Install dependencies
       - name: Install dependencies
         run: flutter pub get
 
-      # 4. Build APK release
-      - name: Build APK
+      - name: Build Release APK
         run: flutter build apk --release
 
-      # 5. Upload APK artifact
-      - name: Upload APK
+      - name: Upload APK artifact
         uses: actions/upload-artifact@v4
         with:
           name: app-release.apk
