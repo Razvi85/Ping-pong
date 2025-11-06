@@ -1,1 +1,0 @@
-Upload entire folder contents to your GitHub repo root and then run Actions -> Build Flutter APK workflow.
